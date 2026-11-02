@@ -1,0 +1,19 @@
+terraform {
+  backend "s3" {
+    bucket                      = "ersel-tf-state-bucket"
+    key                         = "environments/prod/terraform.tfstate"  # <-- PROD STATE YOLU AYRI!
+    region                      = "eu-central-1"
+    dynamodb_table              = "terraform-lock-table"
+    skip_credentials_validation = true
+    skip_metadata_api_check     = true
+    skip_s3_checksum            = true
+    force_path_style            = true
+    skip_requesting_account_id  = true
+
+    endpoints = {
+      s3       = "http://localhost:4566"
+      dynamodb = "http://localhost:4566"
+      sts      = "http://localhost:4566"
+    }
+  }
+}
