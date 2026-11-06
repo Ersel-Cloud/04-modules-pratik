@@ -9,6 +9,11 @@ variable "environment_name" {
   type        = string
 }
 
+variable "allowed_ssh_cidr" {
+type        = string
+description = "SSH için izin verilen CIDR (örnek: 1.2.3.4/32)"
+}
+
 variable "server_count" {
   description = "Ortamda acilacak sunucu sayisi"
   type        = number
