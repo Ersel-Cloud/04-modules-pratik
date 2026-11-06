@@ -26,6 +26,7 @@ module "ec2_cluster" {
 
   environment_name = each.key
   instance_type    = each.value
+  allowed_ssh_cidr = "1.2.3.4/32"
 }
 
 terraform {
